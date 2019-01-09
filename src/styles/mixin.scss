@@ -1,0 +1,33 @@
+@charset "UTF-8";
+//转换大小
+@function transrem($val){
+	@return $val/32 + rem;
+}
+
+@function checkrem($val){
+	@if $val==auto {
+		@return auto;
+	}
+	@else if $val == 0 {
+		@return 0;
+	}
+	@else{
+		@return transrem($val);
+	}
+}
+
+@mixin point($poi,$val){
+    //#{$poi}:checkPx($val);
+    #{$poi}:checkrem($val);
+}
+
+//加前缀,兼容其他浏览器
+@mixin addprefix($pro,$val){
+	-webkit-#{$pro}:$val;
+	#{$pro}:$val;
+}
+
+@mixin addprefixval($pro,$val){
+	#{$pro}:-webkit-#{$val};
+	#{$pro}:$val;
+}
