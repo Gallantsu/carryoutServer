@@ -55,9 +55,6 @@
 		mounted(){
 			let phone = Utils.getCookie('phoneNum');
 			let taken = Utils.getCookie('taken');
-			alert(phone);
-			alert(taken);
-			alert(document.cookie);
 			if(phone&&taken){
 				this.$store.dispatch(CHECK_LOGIN,{
 					phone,
